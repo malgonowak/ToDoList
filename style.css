@@ -1,0 +1,55 @@
+.todolist {
+    /* height: 1000px; */
+    width: 900px;
+    border: 3px solid pink;
+    display: flex;
+    padding-left: 170px;
+    text-align: center;
+    color: black;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-left: 0px;
+
+}
+
+li {
+    display: flex;
+    height: 50px;
+    width: 700px;
+    border: 3px solid grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+
+button {
+
+    border: 3px solid lightpink;
+
+
+}
+
+.enter_things {
+    height: 40px;
+    width: 500px;
+}
+
+.add_me_button {
+    height: 40px;
+    width: 140px;
+}
+
+.finished {
+    text-decoration: line-through;
+}
+
+p {
+    color: black;
+    font-size: 20px;
+}
