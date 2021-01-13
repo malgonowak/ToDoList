@@ -6,60 +6,57 @@ const newimput = enterThings.value;
 
 
 addButton.addEventListener("click", saveThings);
-function saveThings () {
-const newimput = enterThings.value;
-const todo = document.createElement("li");
-const pElem = document.createElement('p');
-pElem.innerText = newimput;
-const editedInput = pElem.value;
-// newimput ? liBuilder.createElement("li.newimput.value")  : console.log("buuu");
+function saveThings() {
+    const newimput = enterThings.value;
+    const todo = document.createElement("li");
+    const pElem = document.createElement('p');
+    pElem.innerText = newimput;
+    const editedInput = pElem.value;
 
-const newImput = liBuilder.appendChild(todo);
-const new_pElem = todo.append(pElem);
+    const newImput = liBuilder.appendChild(todo);
+    const new_pElem = todo.appendChild(pElem);
 
-enterThings.value = '';
+    enterThings.value = '';
 
-const removeButton = document.createElement("button");
-const doneButton = document.createElement("button");
-const editButton = document.createElement("button");
+    const removeButton = document.createElement("button");
+    const doneButton = document.createElement("button");
+    const editButton = document.createElement("button");
 
-removeButton.innerText = "Remove from the list";
-doneButton.innerText = "Click if done";
-editButton.innerText = "Edit";
+    removeButton.innerText = "Remove from the list";
+    doneButton.innerText = "Click if done";
+    editButton.innerText = "Edit";
 
-newImput.appendChild(removeButton);
-newImput.appendChild(doneButton);
-newImput.appendChild(editButton);
+    newImput.appendChild(removeButton);
+    newImput.appendChild(doneButton);
+    newImput.appendChild(editButton);
 
 
-removeButton.addEventListener('click', function(event){
-    this.parentElement.remove();
-});
-// doneButton.addEventListener('click', function(event){
-// this.parentElement.style.textDecoration = underline;
-// });
-
-doneButton.addEventListener('click', function(event){
-    pElem.classList.toggle('finished');
-        // newListItem.classList.toggle('finished');
-   
+    removeButton.addEventListener('click', function (event) {
+        this.parentElement.remove();
     });
-    
-    // editButton.addEventListener('click', function(event){
-    //     (pElem.value)innerText;
-
-    // });
 
 
-};
+    doneButton.addEventListener('click', function (event) {
+        pElem.classList.toggle('finished');
+    });
+
+    editButton.addEventListener('click', function (event) {
+        const editInput = document.createElement('input');
+        todo.prepend(editInput);
+        editInput.value = new_pElem.innerText;
+        new_pElem.remove();
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                console.log('fff');
+
+            }
+        });
+    });
+
+
+
     // function handleSubmit(event) {
-//     event.preventDefault(); // nie przeładowuj strony
-//   }
+    //     event.preventDefault(); // nie przeładowuj strony
+}
 
-
-// const removeButton = document.createElement("button");
-// setInterval(function (){
-// const span = document.createElement("span");
-// span.innerText = "💩🤡👹";
-// document.body.append(span);
-// },500)};
