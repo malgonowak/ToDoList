@@ -1,20 +1,32 @@
+// Zmiana nazw, na bardziej jednoznaczne i czytelniejsze:
+// - enterThings -> inputAddTask lub taskInput
+// - addButton -> addTaskButton lub submitTaskButton
+// - todolist - nigdzie tego nie uzywasz
+// - liBuilder -> todoList lub tasksContainer lub tasksList
+// - newinput - nie ma sensu, czytelny dostatecznie jest zapis taskInput.value
+
 const enterThings = document.querySelector(".enter_things");
 const addButton = document.querySelector(".add_me_button");
 const todolist = document.querySelector(".todolist");
 const liBuilder = document.querySelector("ul");
-const newimput = enterThings.value;
+const newinput = enterThings.value;
 
 
+// Propozycja zmiany funkcji z saveThings na addTask lub saveTask
+// Wszystko upchnelas do jednej funkcji, a ta funkcja powinna TYLKO zapisywac/dodawać zadanie jak nazwa wskazuje
 addButton.addEventListener("click", saveThings);
 function saveThings() {
-    const newimput = enterThings.value;
-    const todo = document.createElement("li");
+    // Powtarzasz niepotrzebnie newinput, w ogole jest on tak czy siak do wyrzucenia, napisalem wyzej
+    const newinput = enterThings.value;
+    // Poniżej nie editInput, tylko np. task
+    const editInput = document.createElement("li");
     const pElem = document.createElement('p');
-    pElem.innerText = newimput;
-    const editedInput = pElem.value;
+    pElem.innerText = newinput;
+    const editedInput = pElem.innerText; // To nie ma sensu, przeklejasz wartość z inputa do kolejnych zmiennych
 
-    const newImput = liBuilder.appendChild(todo);
-    const new_pElem = todo.appendChild(pElem);
+    // Dlaczego tutaj tworzysz zmienne, skoro wstawiasz rzeczy do drzewa DOM?
+    const newInput = liBuilder.appendChild(editInput);
+    const new_pElem = editInput.appendChild(pElem);
 
     enterThings.value = '';
 
@@ -26,9 +38,9 @@ function saveThings() {
     doneButton.innerText = "Click if done";
     editButton.innerText = "Edit";
 
-    newImput.appendChild(removeButton);
-    newImput.appendChild(doneButton);
-    newImput.appendChild(editButton);
+    newInput.appendChild(removeButton);
+    newInput.appendChild(doneButton);
+    newInput.appendChild(editButton);
 
 
     removeButton.addEventListener('click', function (event) {
@@ -41,14 +53,16 @@ function saveThings() {
     });
 
     editButton.addEventListener('click', function (event) {
-        const editInput = document.createElement('input');
-        todo.prepend(editInput);
-        editInput.value = new_pElem.innerText;
-        new_pElem.remove();
+        const inputContainer = document.createElement('div');
+        // todo.prepend(inputContainer);
 
-        document.addEventListener('keydown', (e) => {
+
+        editInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
+
                 console.log('fff');
+                inputContainer.innerText;
+                inputContainer.innerHTML = '';
 
             }
         });
