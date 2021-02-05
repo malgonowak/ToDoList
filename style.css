@@ -25,6 +25,7 @@ li {
     flex-direction: row;
     justify-content: flex-end;
     text-align: center;
+    background-color: transparent;
 }
 
 
@@ -35,9 +36,11 @@ button {
 
 }
 
-.enter_things {
+.input_task {
     height: 40px;
     width: 500px;
+    background-color: transparent;
+
 }
 
 .add_me_button {
@@ -49,7 +52,12 @@ button {
     text-decoration: line-through;
 }
 
-p {
+input {
     color: black;
+    background-color: white;
     font-size: 20px;
+    height: 47px;
+    width: 600px;
+    background-color: transparent;
+
 }
